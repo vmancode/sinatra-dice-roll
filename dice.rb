@@ -31,30 +31,24 @@ get("/dice/2/6") do
 	
   @outcome = "You rolled a #{first_die} and a #{second_die} for a total of #{sum}."
 	
-erb(:two_six)
+erb(:two_six )
 end
 
 get("/dice/2/10") do 
   first_die1 = rand(1..10)
   second_die1 = rand(1..10)
   sum1 = first_die1 + second_die1
-  outcome1 = "You rolled a #{first_die1} and a #{second_die1} for a total of #{sum1}."
+  @outcome1 = "You rolled a #{first_die1} and a #{second_die1} for a total of #{sum1}."
   
-  "<h1>2d10</h1>
-  <p>#{outcome1}</p>
-  <h1><a href=\"/\">Home</a></h1>
-  <h1><a href=\"/dice/2/10\">Refresh</a></h1>"
+erb(:two_ten)
 end
 
 
 get("/dice/1/20") do #(simulate one 20-sided die)
-  first_die2 = rand(1..20)
+  @die = rand(1..20)
   #second_die = (1..10)
-  outcome2 = " you rolled a #{first_die2}."
-  "<h1>1d20</h1>
-  <p>#{outcome2}</p>
-  <h1><a href=\"/\">Home</a></h1>
-  <h1><a href=\"/dice/1/20\">Refresh</a></h1>"
+  @outcome2 = " you rolled a #{@die}."
+ erb(:one_twenty)
   end
   
   
@@ -65,10 +59,21 @@ get("/dice/1/20") do #(simulate one 20-sided die)
     fourth_die = rand(1..4)
     fifth_die = rand(1..4)
     sum = first_die + second_die + third_die  + fourth_die + fifth_die
-    outcome3 = " you rolled a #{first_die}, a #{second_die}, a #{third_die}, a #{fourth_die}  and a #{fifth_die} for a total of #{sum}."
-    "<h1>5d4</h1>
-    <p>#{outcome3}</p>
-    <h1><a href=\"/\">Home</a></h1>
-    <h1><a href=\"/dice/5/4\">Refresh</a></h1>"
+    @outcome3 = " you rolled a #{first_die}, a #{second_die}, a #{third_die}, a #{fourth_die}  and a #{fifth_die} for a total of #{sum}."
+    erb(:five_four)
     end
     
+
+
+
+    get("/dice/100/6") do
+      @rolls = []
+    
+      100.times do
+        die = rand(1..6)
+    
+        @rolls.push(die)
+      end
+    
+      erb(:one_hundred_six)
+    end

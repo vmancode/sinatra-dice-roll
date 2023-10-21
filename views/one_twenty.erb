@@ -1,0 +1,29 @@
+<!-- /views/one_twenty.erb -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dice Roll</title>
+</head>
+
+<body>
+
+<h1>1d20</h1>
+   <% if @die == 1 %>
+  <p style="color: red"><%= @outcome2 %></p>
+<% elsif @die == 20 %>
+  <p style="color: green"><%= @outcome2 %></p>
+<% else %>
+  <p><%= @outcome2 %></p>
+<% end %>
+   <h1><a href="/">Home</a></h1>
+   <h1><a href="/dice/1/20">Refresh</a></h1>
+
+
+
+
+
+
+   
+</body>
+</html>
